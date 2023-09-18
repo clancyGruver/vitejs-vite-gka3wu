@@ -18,10 +18,10 @@ export const getCommentById = async (id: number) => {
   return comment;
 };
 
-export const getCommenstByPostId = async (id: number) => {
+export const getCommentsByPostId = async (id: number) => {
   const url = `${baseUrl}?postId=${id}`;
 
-  if (id > 3) {
+  if (id % 2 === 0) {
     return Promise.reject(new HttpError(404));
   }
 

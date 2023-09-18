@@ -9,7 +9,7 @@ const errorHandler = (error: unknown) => {
 
   switch (error.name) {
     case 'SyntaxError':
-      console.log('Не сериалищуемый объект');
+      console.log('Не сериализуемый объект');
       break;
     case 'HTTP ERROR':
       console.log(error.message);
@@ -18,7 +18,7 @@ const errorHandler = (error: unknown) => {
       console.log('Запрос отменен');
       break;
     default:
-      console.error('Во время выполнения запроса призошла ошибка:', error);
+      console.error('Во время выполнения запроса произошла ошибка:', error);
   }
 };
 

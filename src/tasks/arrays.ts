@@ -54,8 +54,8 @@ export const filterRejected = (results: PromiseSettledResult<unknown>[]) =>
  * реализовать через Symbol.Iterator
  */
 export const range = (from: number = 1, to: number = 10) => ({
-  from: 1,
-  to: 10,
+  from,
+  to,
   [Symbol.iterator]() {
     return {
       current: this.from,

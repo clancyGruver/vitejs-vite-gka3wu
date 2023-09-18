@@ -1,4 +1,4 @@
-import { getCommenstByPostId } from '../API/comments';
+import { getCommentsByPostId } from '../API/comments';
 import { getPostById } from '../API/posts';
 import { IPostWithComments } from '../types/tasks/promises';
 
@@ -8,7 +8,7 @@ import { IPostWithComments } from '../types/tasks/promises';
 export const getPostWithComments = (
   postId: number
 ): Promise<IPostWithComments> =>
-  Promise.all([getPostById(postId), getCommenstByPostId(postId)]).then(
+  Promise.all([getPostById(postId), getCommentsByPostId(postId)]).then(
     ([post, comments]) => ({ post, comments })
   );
 
@@ -19,7 +19,7 @@ export const getPostWithComments2 = async (
   postId: number
 ): Promise<IPostWithComments> => {
   const post = await getPostById(postId);
-  const comments = await getCommenstByPostId(postId);
+  const comments = await getCommentsByPostId(postId);
 
   return { post, comments };
 };
@@ -41,7 +41,7 @@ export const getPostWithComments3 = () => {
   const updatePost = async (postId: number): Promise<void> => {
     const [post, comments] = await Promise.all([
       getPostById(postId),
-      getCommenstByPostId(postId),
+      getCommentsByPostId(postId),
     ]);
     currentPost.post = post;
     currentPost.comments = comments;

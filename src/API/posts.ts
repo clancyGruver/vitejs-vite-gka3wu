@@ -10,7 +10,7 @@ export const getPostById = async (id: number) => {
 
   const requestController = request<IPost>();
 
-  if (id > 3) {
+  if (id % 2 === 0) {
     return Promise.reject(new HttpError(404));
   }
 

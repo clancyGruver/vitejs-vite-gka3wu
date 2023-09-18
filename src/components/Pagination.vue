@@ -18,14 +18,14 @@ interface Props {
   lastPage: boolean;
 }
 
-const props = definePros<Props>();
+const props = defineProps<Props>();
 const emits = defineEmits<{
   pageChange: [newPage: number];
 }>();
 
+const isFirstPage = computed(() => props.pageNumber > 1);
+
 const buttonHandler = (newPage: number) => {
   emits('pageChange', newPage);
 };
-
-const isFirstPage = computed(() => this.pageNumber > 1);
 </script>
